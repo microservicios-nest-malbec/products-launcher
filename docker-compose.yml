@@ -21,6 +21,30 @@ services:
       - PORT=3000
       - NATS_SERVERS=nats://nats-server:4222
 
+  auth-ms:
+    build: ./auth-ms
+    volumes:
+      - ./auth-ms/src:/usr/src/app/src
+    command: npm run start:dev
+    environment:
+      - PORT=3004
+      - NATS_SERVERS=nats://nats-server:4222
+      - DATABASE_URL=postgresql://postgres:123456@users-db:5432/usersdb?schema=public
+      - JWT_SECRET=${JWT_SECRET}
+    
+  users-db:
+    container_name: users_database
+    image: postgres:16.2
+    restart: always
+    volumes:
+      - ./users-ms/postgres:/var/lib/postgresql/data
+    ports:
+      - "5433:5432"
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=123456
+      - POSTGRES_DB=usersdb
+
   products-ms:
     build: ./products-ms
     volumes:
