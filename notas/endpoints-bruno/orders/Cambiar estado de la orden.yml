@@ -1,0 +1,24 @@
+info:
+  name: Cambiar estado de la orden
+  type: http
+  seq: 5
+
+http:
+  method: PATCH
+  url: http://localhost:3000/api/orders/59884410-63fc-45fa-b049-4f76b23fe5fe
+  params:
+    - name: ""
+      value: ""
+      type: query
+  body:
+    type: form-urlencoded
+    data:
+      - name: status
+        value: CANCELLED
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

@@ -1,0 +1,34 @@
+info:
+  name: Crear payment session
+  type: http
+  seq: 1
+
+http:
+  method: POST
+  url: http://localhost:3003/payments/create-payment-session
+  body:
+    type: json
+    data: |-
+      {
+        "orderId": "123",
+        "currency": "usd",
+        "items": [
+          {
+            "name": "Teclado Mecanico",
+            "price": 100,
+            "quantity": 2
+          },
+         {
+            "name": "Mouse",
+            "price": 45.99,
+            "quantity": 2
+          }
+        ]
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

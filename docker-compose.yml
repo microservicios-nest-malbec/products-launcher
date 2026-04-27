@@ -37,7 +37,7 @@ services:
     image: postgres:16.2
     restart: always
     volumes:
-      - ./users-ms/postgres:/var/lib/postgresql/data
+      - ./auth-ms/postgres:/var/lib/postgresql/data
     ports:
       - "5433:5432"
     environment:

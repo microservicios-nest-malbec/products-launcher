@@ -1,0 +1,15 @@
+info:
+  name: Stripe webhook
+  type: http
+  seq: 2
+
+http:
+  method: POST
+  url: http://localhost:3003/payments/webhook
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

@@ -1,0 +1,15 @@
+info:
+  name: Actualizar un producto por ID
+  type: http
+  seq: 4
+
+http:
+  method: PATCH
+  url: http://localhost:3000/api/products/e2df6531-c021-4337-ac07-73adcefedd34
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
